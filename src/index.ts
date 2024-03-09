@@ -1,3 +1,4 @@
+/** All of the available timezone string values */
 export type TimeZones = [
   'Europe/Andorra',
   'Asia/Dubai',
@@ -349,8 +350,10 @@ export type TimeZones = [
   'Africa/Johannesburg'
 ];
 
+/** A specific timezone */
 export type TimeZone = TimeZones[number];
 
+/** Military hours 0 - 24 */
 export type Hours =
   | 0
   | 1
