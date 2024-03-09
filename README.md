@@ -2,7 +2,7 @@
 
 ## Overview
 
-This library provides a set of functions to work with timezones in a web application. It includes functions for retrieving the user's timezone and setting the timezone for a user.
+This library provides a set of functions to work with timezones in a web application. It includes functions for retrieving the user's timezone and retrieving a custom timezone date string. Works in tandem with `vitest` time utils ( see below )
 
 ## Installation
 
@@ -19,11 +19,23 @@ Usage
 
 Example:
 
-```javascript
-import { getUsersTimeZone } from 'my-timezone-library';
+usage with `vite`
 
-const userTimeZone = getUsersTimeZone();
-console.log(`User's timezone: ${userTimeZone}`);
+```javascript
+it('Sets User Timezone', () => {
+  const tz = getCustomTimeZoneDateString('America/New_York');
+  vi.useFakeTimers();
+
+  vi.setSystemTime(tz);
+
+  const newTime = new Date().getHours();
+
+  vi.useRealTimers();
+
+  const realTime = new Date().getHours();
+
+  expect(newTime).not.toEqual(realTime);
+});
 ```
 
 Contributing
