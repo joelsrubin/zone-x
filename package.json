@@ -16,7 +16,7 @@
   },
   "jsr": {
     "name": "@zone-x/zone-x",
-    "version": "0.5.0",
+    "version": "0.6.0",
     "exports": "./src/index.ts"
   }
 }
