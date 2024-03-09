@@ -1,11 +1,12 @@
 import { it, expect, vi } from 'vitest';
-import { getUsersTimeZone, setUserTimeZone } from './main';
+import { getUsersTimeZone, setUserTimeZone } from '.';
 
 it('Gets User Timezone', () => {
   expect(getUsersTimeZone()).toBe('America/Chicago');
 });
 it('Sets User Timezone', () => {
   const tz = setUserTimeZone('America/New_York');
+
   vi.useFakeTimers();
   vi.setSystemTime(tz);
   const newTime = new Date().getHours();

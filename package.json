@@ -1,9 +1,8 @@
 {
+  "name": "zone-x",
   "private": true,
+  "version": "0.0.0",
   "type": "module",
-  "name": "@zone-x/zone-x",
-  "version": "0.1.0",
-  "exports": "./mod.ts",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
