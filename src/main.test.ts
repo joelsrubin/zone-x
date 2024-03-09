@@ -7,7 +7,6 @@ it('Gets User Timezone', () => {
 it('Sets User Timezone', () => {
   const tz = getCustomTimeZoneDateString('America/New_York');
   vi.useFakeTimers();
-
   vi.setSystemTime(tz);
 
   const newTime = new Date().getHours();
@@ -15,6 +14,5 @@ it('Sets User Timezone', () => {
   vi.useRealTimers();
 
   const realTime = new Date().getHours();
-
   expect(newTime).not.toEqual(realTime);
 });
