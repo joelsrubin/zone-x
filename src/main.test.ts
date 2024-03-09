@@ -1,11 +1,11 @@
 import { it, expect, vi } from 'vitest';
-import { getCurrentTimeZone, getCustomTimeZoneDateString } from '.';
+import { getCurrentTimeZone, getCustomDate } from '.';
 
 it('Gets User Timezone', () => {
   expect(getCurrentTimeZone()).toBe('America/Chicago');
 });
 it('Sets User Timezone', () => {
-  const tz = getCustomTimeZoneDateString('America/New_York');
+  const tz = getCustomDate({ timeZone: 'America/New_York' });
   vi.useFakeTimers();
   vi.setSystemTime(tz);
 
@@ -15,4 +15,10 @@ it('Sets User Timezone', () => {
 
   const realTime = new Date().getHours();
   expect(newTime).not.toEqual(realTime);
+});
+
+it('test', () => {
+  const time = getCustomDate({ timeZone: 'America/New_York', hour: 24 });
+  vi.useFakeTimers();
+  vi.setSystemTime(time);
 });
