@@ -31,7 +31,9 @@ it('Accurately Detects when Today is No Longer Today in EST', () => {
   });
 
   console.log('PACIFIC TIME: ', pacificTime.toDateString());
+  // ^ PACIFIC TIME:  Sat Mar 09 2024
   console.log('EASTERN TIME: ', vi.getMockedSystemTime()?.toDateString());
+  // ^ EASTERN TIME:  Sun Mar 10 2024
   expect(pacificTime.getDate()).not.toEqual(
     vi.getMockedSystemTime()?.getDate()
   );
