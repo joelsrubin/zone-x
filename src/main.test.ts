@@ -1,5 +1,5 @@
 import { it, expect, vi } from 'vitest';
-import { getCurrentTimeZone, getCustomDate } from '.';
+import { getCurrentTimeZone, getCustomDate, setCustomDate } from '.';
 
 it('Gets User Timezone', () => {
   expect(getCurrentTimeZone()).toBe('America/Chicago');
@@ -23,11 +23,13 @@ it('Accurately Detects when Today is No Longer Today in EST', () => {
     time: 'midnight',
   });
   vi.useFakeTimers();
-  vi.setSystemTime(time);
+  setCustomDate(time);
+
   const pacificTime = getCustomDate({
     timeZone: 'America/Los_Angeles',
     time: '9pm',
   });
+
   console.log('PACIFIC TIME: ', pacificTime.toDateString());
   console.log('EASTERN TIME: ', vi.getMockedSystemTime()?.toDateString());
   expect(pacificTime.getDate()).not.toEqual(
