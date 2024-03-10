@@ -17,8 +17,20 @@ it('Sets User Timezone', () => {
   expect(newTime).not.toEqual(realTime);
 });
 
-it('test', () => {
-  const time = getCustomDate({ timeZone: 'America/New_York', hour: 24 });
+it('Accurately Detects when Today is No Longer Today in EST', () => {
+  const time = getCustomDate({
+    timeZone: 'America/New_York',
+    time: 'midnight',
+  });
   vi.useFakeTimers();
   vi.setSystemTime(time);
+  const pacificTime = getCustomDate({
+    timeZone: 'America/Los_Angeles',
+    time: '9pm',
+  });
+  console.log('PACIFIC TIME: ', pacificTime.toDateString());
+  console.log('EASTERN TIME: ', vi.getMockedSystemTime()?.toDateString());
+  expect(pacificTime.getDate()).not.toEqual(
+    vi.getMockedSystemTime()?.getDate()
+  );
 });

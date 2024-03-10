@@ -353,33 +353,33 @@ export type TimeZones = [
 /** A specific timezone */
 export type TimeZone = TimeZones[number];
 
-/** Military hours 0 - 24 */
-export type Hours =
-  | 0
-  | 1
-  | 2
-  | 3
-  | 4
-  | 5
-  | 6
-  | 7
-  | 8
-  | 9
-  | 10
-  | 11
-  | 12
-  | 13
-  | 14
-  | 15
-  | 16
-  | 17
-  | 18
-  | 19
-  | 20
-  | 21
-  | 22
-  | 23
-  | 24;
+const timeObject = {
+  '12am': 0,
+  '1am': 1,
+  '2am': 2,
+  '3am': 3,
+  '4am': 4,
+  '5am': 5,
+  '6am': 6,
+  '7am': 7,
+  '8am': 8,
+  '9am': 9,
+  '10am': 10,
+  '11am': 11,
+  '12pm': 12,
+  '1pm': 13,
+  '2pm': 14,
+  '3pm': 15,
+  '4pm': 16,
+  '5pm': 17,
+  '6pm': 18,
+  '7pm': 19,
+  '8pm': 20,
+  '9pm': 21,
+  '10pm': 22,
+  '11pm': 23,
+  midnight: 24,
+} as const;
 
 /** Gets users timezone from system settings */
 export function getCurrentTimeZone(): TimeZone {
@@ -391,18 +391,18 @@ export function getCurrentTimeZone(): TimeZone {
  *
  * @param {Object} options - Options for creating the custom date.
  * @param {TimeZone} options.timeZone - The time zone for the custom date.
- * @param {Hours} [options.hour] - The hour of the custom date (default is 0).
+ * @param {keyof typeof timeObject} [options.time] - The hour of the custom date (default is '12am').
  * @returns {Date} - The custom date object.
  */
 export function getCustomDate({
   timeZone,
-  hour = 0,
+  time = '12am',
 }: {
   timeZone: TimeZone;
-  hour?: Hours;
+  time?: keyof typeof timeObject;
 }): Date {
   const setzone = new Date().toLocaleString('en-US', { timeZone });
   const date = new Date(setzone);
-  date.setHours(hour, 0, 0, 0);
+  date.setHours(timeObject[time], 0, 0, 0);
   return date;
 }
