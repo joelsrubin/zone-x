@@ -1,16 +1,16 @@
 import { it, expect, vi } from 'vitest';
-import { getCurrentTimeZone, getCustomDate, setCustomDate } from '.';
+import { getCurrentTimeZone, getCustomDate } from '.';
 
 it('Gets User Timezone', () => {
   expect(getCurrentTimeZone()).toBe('America/Chicago');
 });
+
 it('Sets User Timezone', () => {
   const tz = getCustomDate({ timeZone: 'America/New_York' });
   vi.useFakeTimers();
   vi.setSystemTime(tz);
 
   const newTime = new Date().getHours();
-
   vi.useRealTimers();
 
   const realTime = new Date().getHours();
@@ -23,7 +23,7 @@ it('Accurately Detects when Today is No Longer Today in EST', () => {
     time: 'midnight',
   });
   vi.useFakeTimers();
-  setCustomDate(time);
+  vi.setSystemTime(time);
 
   const pacificTime = getCustomDate({
     timeZone: 'America/Los_Angeles',

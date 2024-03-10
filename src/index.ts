@@ -1,5 +1,3 @@
-import { VitestUtils, vi } from 'vitest';
-
 /** All of the available timezone string values */
 export type TimeZones = [
   'Europe/Andorra',
@@ -407,14 +405,4 @@ export function getCustomDate({
   const date = new Date(setzone);
   date.setHours(timeObject[time], 0, 0, 0);
   return date;
-}
-
-/**
- * Sets a custom date using the provided Date object.
- *
- * @param {Date} date - The Date object representing the custom date.
- * @returns {VitestUtils} - The result of calling vi.setSystemTime with the provided date.
- */
-export function setCustomDate(date: Date): VitestUtils {
-  return vi.setSystemTime(date);
 }
