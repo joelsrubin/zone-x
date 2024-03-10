@@ -11,18 +11,23 @@ Example:
 usage with `vite`
 
 ```javascript
-it('Sets User Timezone', () => {
-  const tz = getCustomDate({ timeZone: 'America/New_York' });
-  vi.useFakeTimers();
-  vi.setSystemTime(tz);
-
-  const newTime = new Date().getHours();
-
-  vi.useRealTimers();
-
-  const realTime = new Date().getHours();
-  expect(newTime).not.toEqual(realTime);
+const time = getCustomDate({
+  timeZone: 'America/New_York',
+  time: 'midnight',
 });
+vi.useFakeTimers();
+vi.setSystemTime(time);
+
+const pacificTime = getCustomDate({
+  timeZone: 'America/Los_Angeles',
+  time: '9pm',
+});
+
+console.log('PACIFIC TIME: ', pacificTime.toDateString());
+// ^ PACIFIC TIME:  Sat Mar 09 2024
+console.log('EASTERN TIME: ', vi.getMockedSystemTime()?.toDateString());
+// ^ EASTERN TIME:  Sun Mar 10 2024
+expect(pacificTime.getDate()).not.toEqual(vi.getMockedSystemTime()?.getDate());
 ```
 
 Contributing
