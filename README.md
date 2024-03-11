@@ -1,9 +1,11 @@
 ## A Lightweight `TimeZone` Utility
 
-<p align="center" style="text-align: center">
-  <picture>
-    <img src="https://github.com/joelsrubin/zone-x/blob/main/assets/logo.png?raw=true" alt="Zone-X Logo" height="200" />
-  </picture>
+<p align="center">
+  <center>
+    <picture>
+      <img src="https://github.com/joelsrubin/zone-x/blob/main/assets/logo.png?raw=true" alt="Zone-X Logo" height="200" />
+    </picture>
+  </center>
 </p>
 
 ## Overview
