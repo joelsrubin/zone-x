@@ -1,5 +1,5 @@
 {
   "name": "@zone-x/zone-x",
-  "version": "0.20.4",
+  "version": "0.20.5",
   "exports": "./src/index.ts"
 }

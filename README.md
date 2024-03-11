@@ -10,7 +10,7 @@
 
 ## Overview
 
-This library provides a set of functions to work with timezones in a web application. It includes functions for retrieving the user's timezone and retrieving a custom timezone date string. Works in tandem with `vitest` time utils ( see below )
+This library provides a set of functions to work with timezones in a web application. It includes functions for retrieving the user's timezone and retrieving a custom Date object. Works nicely in tandem with `vitest` time utils ( see below )
 
 ## Usage
 
