@@ -1,7 +1,6 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/logo.png">
-    <img src="./assets\/logo.png" alt="Zone-X Logo" height="100" />
+    <img src="https://github.com/joelsrubin/zone-x/blob/main/assets/logo.png?raw=true" alt="Zone-X Logo" height="200" />
   </picture>
 </p>
 
