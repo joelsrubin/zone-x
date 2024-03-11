@@ -1,4 +1,9 @@
-# Timezone Utility Library
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/logo.png">
+    <img src="./assets\/logo.png" alt="Zone-X Logo" height="100" />
+  </picture>
+</p>
 
 ## Overview
 
@@ -8,7 +13,7 @@ This library provides a set of functions to work with timezones in a web applica
 
 Example:
 
-usage with `vite`
+usage with `vitest`
 
 ```javascript
 const time = getCustomDate({
